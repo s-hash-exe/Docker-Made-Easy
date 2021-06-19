@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker</title>
+    <style>
+        h1{
+    text-align: center;
+        }
+
+
+        textarea{
+            width: 70%;
+            height: 20%;
+        }
+        body{
+            background-color: #DFEEEA;
+            font-family:'Times New Roman', Times, serif;
+            letter-spacing: 1.5px;
+            color:whitesmoke;
+        }
+        .d1{
+            background-color: #2F5D62;
+            width: 25%;
+        height: 55%;
+        border-radius: 5px;
+        box-shadow: 2px 10px 40px rgba(22,20,19,0.4);
+        padding: 10 10;
+        margin: 50px;
+        float:left;
+
+        }
+        .d2{
+            background-color: #2F5D62;
+            width: 25%;
+        height: 35%;
+        border-radius: 5px;
+        box-shadow: 2px 10px 40px rgba(22,20,19,0.4);
+        padding: 10 10;
+        margin: 50px;
+        float:left;
+        }
+        .d2submit{
+            width: 42%;
+            background-color: #A7C4BC;
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 10px;
+            margin: 8px 8px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        input[type=text], select {
+            width: 70%;
+            padding: 12px 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #dcdcdc;
+            border-radius: 8px;
+            outline: none;
+        }
+        input[type=text]:focus {
+            border: 2px solid var(--left-color);
+        }
+        input[type=submit] {
+            width: 42%;
+            background-color: #A7C4BC;
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 10px;
+            margin: 8px 8px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        input[type=submit]:hover {
+            background-color: #5E8B7E;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="d2">
+            <center>
+                <h3>Start Docker Engine</h3>
+                <form action="/start" method="GET">
+                    <input class="d2submit" type="submit" value="Start">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d2">
+            <center>
+                <h3>Available Images</h3>
+                <form action="/available" method="GET">
+                    <input class="d2submit" type="submit" value="Show">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d2">
+            <center>
+                <h3>Stop Docker Engine</h3>
+                <form action="/stop" method="GET">
+                    <input class="d2submit" type="submit" value="Confirm">
+                </form>
+            </center>
+            
+        </div>
+        
+    </center>
+    <center>
+        <div class="d2">
+            <center>
+                <h3>Display Active Containers</h3>
+                <form action="/active" method="GET">
+                    <input class="d2submit" type="submit" value="Display">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d2">
+            <center>
+                <h3>Display All Containers</h3>
+                <form action="/all" method="GET">
+                    <input class="d2submit" type="submit" value="Display">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d2">
+            <center>
+                <h3>Terminate All Containers</h3>
+                <form action="/terminateAll" method="GET">
+                    <input class="d2submit" type="submit" value="Terminate">
+                </form>
+            </center>
+            
+        </div>
+        
+    </center>
+    <center>
+        <div class="d1">
+            <center>
+                <h3>Pull Image from Docker Hub</h3>
+                <form action="/pull" method="GET">
+                    <input type="text" placeholder="Enter the image name" name="name">
+                    <input type="submit" value="Pull">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d1">
+            <center>
+                <h3>Inspect a Container</h3>
+                <form action="/inspect" method="GET">
+                    <input type="text" placeholder="Enter container name" name="name">
+                    <input type="submit" value="Inspect">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d1">
+            <center>
+                <h3>Terminate a Container</h3>
+                <form action="/terminate" method="GET">
+                    <input type="text" placeholder="Enter container name" name="name">
+                    <input type="submit" value="Terminate">
+                </form>
+            </center>
+            
+        </div>
+        
+    </center>
+    <center>
+        <div class="d1">
+            <center>
+                <h3>Launch a Container</h3>
+                <form action="/launch" method="GET">
+                    <input type="text" name="name" placeholder="Enter container name">
+                    <input type="text" name="image" placeholder="Enter the image name">
+                    <input type="text" name="network" placeholder="Enter network name">
+                    <input type="submit" value="Launch">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d1">
+            <center>
+                <h3>Create Custom Image</h3>
+                <form action="/customize" method="GET">
+                    <input type="text" name="name" placeholder="Enter container name">
+                    <input type="text" name="image" placeholder="Enter the image name">
+                    <input type="text" name="tag" placeholder="Enter the tag">
+                    <input type="submit" value="Create">
+                </form>
+            </center>
+            
+        </div>
+        <div class="d1">
+            <center>
+                <h3>Execute a Program</h3>
+                <form action="/execute" method="GET">
+                    <input type="text" name="name" placeholder="Enter container name">
+                    <input type="text" name="program" placeholder="Enter program">
+                    <input type="submit" value="Execute">
+                </form>
+            </center>
+            
+        </div>
+        
+    </center>
+</body>
+</html>
